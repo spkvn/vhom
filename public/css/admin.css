@@ -8520,3 +8520,23 @@ div.body {
   background-color: #F2f2f2;
 }
 
+div.form-grid div.content-cell {
+  margin-top: 25px;
+  background-color: #fff;
+  padding: 16px;
+}
+
+div.form-grid div.content-cell input[type='text'] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: border-bottom 0.25s ease-in;
+  transition: border-bottom 0.25s ease-in;
+}
+
+div.form-grid div.content-cell input[type='text']:focus {
+  border-bottom: 2px solid darkgray;
+}
+

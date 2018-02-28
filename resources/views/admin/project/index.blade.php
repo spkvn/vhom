@@ -5,7 +5,7 @@
             <h2>vhom.org projects</h2>
         </div>
         <div class="cell small-4">
-            <a href="#" class="button">new</a>
+            <a href="{{ route('admin.project.create') }}" class="button">new</a>
         </div>
         @forelse($records as $project)
             <div class="cell small-4">

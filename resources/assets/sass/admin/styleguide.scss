@@ -48,3 +48,13 @@ div#slider{
   background-color:#fff;
   padding:16px;
 }
+
+div.image-dropzone{
+  width:100%;
+  border:3px dashed $navyish;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:250px;
+}

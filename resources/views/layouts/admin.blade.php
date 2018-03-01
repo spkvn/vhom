@@ -26,5 +26,19 @@
 <div class="body">
     @yield('content')
 </div>
+<div id="slider">
+    <h1>Confirmation</h1>
+    <hr>
+    <p id="confirm-message">
+
+    </p>
+    <button class="confirm">
+        Yes
+    </button>
+    <button class="cancel">
+        No
+    </button>
+</div>
+@stack('javascript')
 </body>
 </html>

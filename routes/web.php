@@ -17,5 +17,7 @@ Auth::routes();
 
 Route::group(['as' => 'admin.', 'middleware' => 'auth.admin', 'namespace' => 'Admin', 'prefix' => 'admin'],function(){
     Route::get('/', 'AdminController@index')->name('index');
+    Route::post('upload','ImageUploadController@upload')->name('upload');
+    Route::get('project/{project}/images', 'ProjectController@images')->name("project.images");
     Route::resource('project', 'ProjectController');
 });

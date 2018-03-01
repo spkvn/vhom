@@ -8467,6 +8467,55 @@ h6 {
   font-family: "Roboto Slab", Serif;
 }
 
+div.cell.raised {
+  background-color: #fff;
+}
+
+div.cell.taller {
+  height: 250px;
+}
+
+div.cell.relative {
+  position: relative;
+}
+
+div.bottom-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+div.bottom-buttons form {
+  display: none;
+}
+
+div.bottom-buttons a {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  background-color: #0c3d5d;
+  -webkit-transition: color 0.25s ease-in, background-color 0.25s ease-in;
+  transition: color 0.25s ease-in, background-color 0.25s ease-in;
+}
+
+div.bottom-buttons a:hover {
+  background-color: #0d4366;
+  color: darkorange;
+}
+
+div#slider {
+  background-color: #fff;
+  padding: 16px;
+}
+
 nav.nav {
   position: fixed;
   top: 0;
@@ -8518,6 +8567,7 @@ div.body {
   height: 100vh;
   left: 100px;
   background-color: #F2f2f2;
+  padding-left: 16px;
 }
 
 div.form-grid div.content-cell {

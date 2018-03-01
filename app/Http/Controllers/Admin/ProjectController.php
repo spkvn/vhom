@@ -44,51 +44,54 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Project::create([
+            'title'     => $request->title,
+            'subtitle'  => $request->subtitle,
+            'body'      => $request->body,
+            'github'    => $request->github,
+            'background_image' => 'none',
+            'lead_image' => 'none'
+        ]);
+
+        return redirect()
+            ->route('admin.project.index')
+            ->with('flashNotice',$request->title." created");
+    }
+    
+
+    public function edit(Project $project)
+    {
+        return view('admin.project.edit',[
+            'record' => $project,
+            'base'   => $this->base
+        ]);
+    }
+    
+    public function update(Request $request, Project $project)
+    {
+        $project->update([
+            'title'     => $request->title,
+            'subtitle'  => $request->subtitle,
+            'body'      => $request->body,
+            'github'    => $request->github
+        ]);
+
+        return redirect()
+            ->route('admin.project.index')
+            ->with('flashNotice', 'Project Updated');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function images(Project $project)
     {
-        //
+        return view('admin.project.images',[
+            'record' => $project,
+            'base'   => $this->base
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function destroy(Project $project)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $project->delete();
+        return response()->json(['message' => 'project deleted'],200);
     }
 }

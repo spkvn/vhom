@@ -13,9 +13,17 @@ let mix = require('laravel-mix');
 
 mix.sass('resources/assets/sass/app.scss','public/css');
 mix.sass('resources/assets/sass/admin.scss', 'public/css');
+
+mix.copy('node_modules/tinymce/plugins','public/js/plugins',false);
+mix.copy('node_modules/tinymce/skins','public/js/skins',false);
+mix.copy('node_modules/tinymce/themes','public/js/themes',false);
+
 mix.combine([
    'node_modules/jquery/dist/jquery.min.js',
-   'node_modules/foundation-sites/dist/js/foundation.min.js'
+   'node_modules/foundation-sites/dist/js/foundation.min.js',
+    'node_modules/tinymce/tinymce.js'
 ], 'public/js/vendor.js');
+
 mix.js('resources/assets/js/front.js', 'public/js');
+mix.js('resources/assets/js/admin.js', 'public/js');
 

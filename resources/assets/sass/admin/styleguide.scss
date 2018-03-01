@@ -57,4 +57,28 @@ div.image-dropzone{
   justify-content:center;
   align-items:center;
   height:250px;
+
+  div.dz-preview{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:75%;
+    margin:auto;
+    //.dz-image{
+    //  margin:auto;
+    //}
+    .dz-filename{
+      color:#fff;
+      font-size:16px;
+      margin-top:-24px;
+    }
+    .dz-error-mark,
+    .dz-success-mark,
+    .dz-size,
+    .dz-progress,
+    .dz-error-message{
+      display:none;
+    }
+  }
 }

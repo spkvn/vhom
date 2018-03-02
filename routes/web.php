@@ -20,4 +20,7 @@ Route::group(['as' => 'admin.', 'middleware' => 'auth.admin', 'namespace' => 'Ad
     Route::post('image/upload','ImageUploadController@upload')->name('upload');
     Route::get('project/{project}/images', 'ProjectController@images')->name("project.images");
     Route::resource('project', 'ProjectController');
+
+    Route::get('news/{news}/images','NewsController@images')->name('news.images');
+    Route::resource('news','NewsController');
 });

@@ -2,9 +2,9 @@
     <p><span class="lnr lnr-leaf"></span></p>
     <p>Project</p>
 </a>
-<a href="" class="nav-link">
+<a href="{{ route('admin.news.index') }}" class="nav-link">
     <p><span class="lnr lnr-magic-wand"></span></p>
-    <p>Blog Post</p>
+    <p>News</p>
 </a>
 <a href="" class="nav-link">
     <p><span class="lnr lnr-moon"></span></p>

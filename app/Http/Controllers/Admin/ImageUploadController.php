@@ -5,6 +5,7 @@ namespace Vhom\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Vhom\Http\Controllers\Controller;
+use Vhom\News;
 use Vhom\Project;
 
 class ImageUploadController extends Controller
@@ -29,6 +30,16 @@ class ImageUploadController extends Controller
                 Storage::disk('local')->put($name,file_get_contents($file),'public');
                 Project::find($request->id)->update([
                     'lead_image' => $name
+                ]);
+            }
+        } else if ($request->hasFile('news_background_image')) {
+            if(isset($request->id)){
+                $file = $request->file('news_background_image');
+                $ext  = $file->getClientOriginalExtension();
+                $name = "news/background/".bin2hex(random_bytes(8)).".$ext";
+                Storage::disk('local')->put($name, file_get_contents($file),'public');
+                News::find($request->id)->update([
+                    'background_image' => $name
                 ]);
             }
         }

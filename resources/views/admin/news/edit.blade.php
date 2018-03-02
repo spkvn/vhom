@@ -3,7 +3,7 @@
     @if(isset($record))
         <h2>Editing {{$record->title}}</h2>
     @else
-        <h2>Creating new project</h2>
+        <h2>Creating new news item</h2>
     @endif
     <div class="grid-x grid-padding-x">
         <div class="cell small-12">
@@ -21,11 +21,6 @@
                 <textarea name="body" class="rte" rows="10">
                     {{ isset($record) ? htmlspecialchars($record->body) : "" }}
                 </textarea>
-            </label>
-        </div>
-        <div class="cell small-12">
-            <label for="github">Github link:
-                <input type="text" name="github" value="{{isset($record) ? $record->github : ""}}">
             </label>
         </div>
     </div>

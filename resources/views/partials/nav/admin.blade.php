@@ -6,7 +6,7 @@
     <p><span class="lnr lnr-magic-wand"></span></p>
     <p>News</p>
 </a>
-<a href="" class="nav-link">
+<a href="{{ route('admin.tag.index') }}" class="nav-link">
     <p><span class="lnr lnr-moon"></span></p>
     <p>Tag</p>
 </a>

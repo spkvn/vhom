@@ -23,4 +23,6 @@ Route::group(['as' => 'admin.', 'middleware' => 'auth.admin', 'namespace' => 'Ad
 
     Route::get('news/{news}/images','NewsController@images')->name('news.images');
     Route::resource('news','NewsController');
+
+    Route::resource('tag','TagController');
 });

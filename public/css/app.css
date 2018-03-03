@@ -8518,7 +8518,7 @@ nav.nav p.description {
 }
 
 nav.nav:hover {
-  width: 250px;
+  width: 420px;
 }
 
 nav.nav:hover a.nav-link {
@@ -8537,6 +8537,10 @@ nav.nav:hover a.nav-link {
 nav.nav:hover p.description {
   visibility: visible;
   opacity: 1;
+}
+
+div.content {
+  padding-left: 80px;
 }
 
 div.auth-container {

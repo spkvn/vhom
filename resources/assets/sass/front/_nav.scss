@@ -37,7 +37,7 @@ nav.nav{
     transition: visibility 0.0s, opacity 0.25s ease-in;
   }
   &:hover{
-    width:250px;
+    width:420px;
     a.nav-link{
       flex-direction:row;
       justify-content: space-evenly;
@@ -48,4 +48,8 @@ nav.nav{
       opacity: 1;
     }
   }
+}
+
+div.content{
+  padding-left:80px;
 }

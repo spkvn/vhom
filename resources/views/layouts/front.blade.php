@@ -17,12 +17,9 @@
     <script src="/js/vendor.js"></script>
 </head>
 <body>
-<nav class="nav">
-    @include('partials.nav.front')
-</nav>
-<div class="body">
-    @yield('content')
-</div>
-@stack('javascript')
+    <div id="app">
+
+    </div>
+    <script src="{{ asset('js/front.js') }}"></script>
 </body>
 </html>

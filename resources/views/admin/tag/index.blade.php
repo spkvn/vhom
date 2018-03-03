@@ -12,17 +12,7 @@
     </div>
     <div class="grid-x grid-padding-x" id="tag-list-parent">
         @forelse($tags as $tag)
-            <div class="tag cell small-4 " data-id="{{$tag->id}}" style="margin-bottom:10px; background:white;">
-                <p class="tag-name">{{$tag->name}}</p>
-                <button class="tag-edit">
-                    edit
-                </button>
-                <a class="delete"
-                   data-route="{{ route('admin.tag.destroy', $tag->id) }}"
-                   data-message="Are you sure you want to delete {{$tag->name}}">
-                   delete
-                </a>
-            </div>
+            @include('admin.partials.tag',$tag)
         @empty
             <div id="no-tags" class="cell small-12">
                 No Tags

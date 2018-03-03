@@ -32,6 +32,7 @@ function initTinyMCE(){
 initTinyMCE();
 
 $(document).ready(() => {
+    // Start of slider functions
     $slider = $('#slider').slideReveal({
         'overlay' : true,
         'width' : 400,
@@ -72,4 +73,10 @@ $(document).ready(() => {
             $slider.slideReveal("show");
         });
     });
+
+    // Logout links.
+    $('a#logout-link').on('click',function(){
+        $(this).find('form#logout-form').submit();
+    });
 });
+

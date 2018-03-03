@@ -147,6 +147,7 @@ function initTinyMCE() {
 initTinyMCE();
 
 $(document).ready(function () {
+    // Start of slider functions
     $slider = $('#slider').slideReveal({
         'overlay': true,
         'width': 400,
@@ -186,6 +187,11 @@ $(document).ready(function () {
             $slider.find('button.confirm').data('route', route);
             $slider.slideReveal("show");
         });
+    });
+
+    // Logout links.
+    $('a#logout-link').on('click', function () {
+        $(this).find('form#logout-form').submit();
     });
 });
 

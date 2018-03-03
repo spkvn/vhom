@@ -28,6 +28,14 @@ class TagController extends Controller
         return response()->json(['message' => 'created tag']);
     }
 
+    public function update(Request $request, Tag $tag)
+    {
+        $tag->update([
+            'name' => $request->name
+        ]);
+        return response()->json(['message' => 'success']);
+    }
+
     public function destroy(Tag $tag)
     {
         $tag->delete();

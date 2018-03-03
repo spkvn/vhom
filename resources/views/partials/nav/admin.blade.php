@@ -10,7 +10,10 @@
     <p><span class="lnr lnr-moon"></span></p>
     <p>Tag</p>
 </a>
-<a href="" class="nav-link">
+<a id='logout-link'class="nav-link">
     <p><span class="lnr lnr-chevron-left-circle"></span></p>
     <p>Logout</p>
+    <form id='logout-form' action="{{ route('logout') }}" method="POST">
+        {{csrf_field()}}
+    </form>
 </a>

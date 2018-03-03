@@ -14905,11 +14905,15 @@ var render = function() {
       "nav",
       { staticClass: "nav" },
       [
-        _c("router-link", { attrs: { to: "/projects" } }, [
-          _c("span", { staticClass: "lnr lnr-home" }),
-          _vm._v(" "),
-          _c("p", { staticClass: "description" }, [_vm._v("Projects")])
-        ])
+        _c(
+          "router-link",
+          { staticClass: "nav-link", attrs: { to: "/projects" } },
+          [
+            _c("span", { staticClass: "lnr lnr-home" }),
+            _vm._v(" "),
+            _c("p", { staticClass: "description" }, [_vm._v("Projects")])
+          ]
+        )
       ],
       1
     ),
@@ -14934,12 +14938,18 @@ if (false) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__project_index_vue__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__project_index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__project_index_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__project_show_vue__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__project_show_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__project_show_vue__);
 
-// import ProjectShow  from './project-show.vue'
+
 
 /* harmony default export */ __webpack_exports__["a"] = ([{
     path: '/projects',
     component: __WEBPACK_IMPORTED_MODULE_0__project_index_vue___default.a
+}, {
+    path: '/projects/:id',
+    component: __WEBPACK_IMPORTED_MODULE_1__project_show_vue___default.a,
+    props: true
 }]);
 
 /***/ }),
@@ -15016,6 +15026,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -15038,6 +15052,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         showProject: function showProject(id) {
             console.log(id + " to be shown");
+            this.$router.push('/projects/' + id);
+        },
+        absoluteURL: function absoluteURL(relative) {
+            return "https://dev.vhom.org/storage/app/" + relative;
+        },
+        backgroundImage: function backgroundImage(relative) {
+            return "url(https://dev.vhom.org/storage/app/'" + relative + "')";
         }
     }
 });
@@ -15952,7 +15973,13 @@ var render = function() {
         return _c(
           "div",
           {
-            staticClass: "cell small-4",
+            staticClass: "cell small-4 project-cell",
+            style: {
+              "background-image":
+                "url('http://dev.vhom.org/storage/app/" +
+                project.background_image +
+                "')"
+            },
             on: {
               click: function($event) {
                 _vm.showProject(project.id)
@@ -16006,6 +16033,139 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(5)
+/* script */
+var __vue_script__ = __webpack_require__(56)
+/* template */
+var __vue_template__ = __webpack_require__(55)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/front/projects/project-show.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-fa879c04", Component.options)
+  } else {
+    hotAPI.reload("data-v-fa879c04", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "project-show" }, [
+    _c("div", { staticClass: "grid-x grid-padding-x" }, [
+      _c("div", { staticClass: "cell small-12" }, [
+        _c("h2", [_vm._v(_vm._s(_vm.project.title))]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.project.subtitle))]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.errors))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "cell small-12" }, [
+        _vm._v("\n            " + _vm._s(_vm.project.body) + "\n        ")
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-fa879c04", module.exports)
+  }
+}
+
+/***/ }),
+/* 56 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['id'],
+    data: function data() {
+        return {
+            errors: "",
+            project: ""
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get("/api/projects/" + this.id).then(function (response) {
+            _this.project = response.data;
+        }).catch(function (response) {
+            _this.errors = response;
+        });
+    }
+});
 
 /***/ })
 /******/ ]);

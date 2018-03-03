@@ -8565,3 +8565,11 @@ div.cell.right {
   text-align: right;
 }
 
+div.projects-index {
+  padding: 0px 32px;
+}
+
+div.projects-index div.project-cell {
+  color: white;
+}
+

@@ -12,4 +12,9 @@ class ProjectController extends Controller
     {
         return response()->json(Project::all());
     }
+
+    public function show(Project $project)
+    {
+        return response()->json($project);
+    }
 }

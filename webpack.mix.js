@@ -21,9 +21,14 @@ mix.copy('node_modules/tinymce/themes','public/js/themes',false);
 mix.combine([
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/foundation-sites/dist/js/foundation.min.js',
+    'node_modules/selectize/dist/js/standalone/selectize.js',
     'node_modules/tinymce/tinymce.js',
     'node_modules/dropzone/dist/dropzone.js'
 ], 'public/js/vendor.js');
+
+mix.combine([
+    'node_modules/selectize/dist/css/selectize.default.css'
+],'public/css/vendor.css');
 
 mix.js('resources/assets/js/front.js', 'public/js');
 mix.js('resources/assets/js/admin.js', 'public/js');

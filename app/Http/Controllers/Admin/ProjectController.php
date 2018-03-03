@@ -5,6 +5,7 @@ namespace Vhom\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Vhom\Http\Controllers\Controller;
 use Vhom\Project;
+use Vhom\Tag;
 
 class ProjectController extends Controller
 {
@@ -32,7 +33,8 @@ class ProjectController extends Controller
     public function create()
     {
         return view('admin.project.edit',[
-            'base' => $this->base
+            'base' => $this->base,
+            'relatedTags' => null
         ]);
     }
 
@@ -44,7 +46,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        Project::create([
+        $project = Project::create([
             'title'     => $request->title,
             'subtitle'  => $request->subtitle,
             'body'      => $request->body,
@@ -52,6 +54,8 @@ class ProjectController extends Controller
             'background_image' => 'none',
             'lead_image' => 'none'
         ]);
+
+        self::handleTags($project, explode(',',request('tags')));
 
         return redirect()
             ->route('admin.project.index')
@@ -63,6 +67,7 @@ class ProjectController extends Controller
     {
         return view('admin.project.edit',[
             'record' => $project,
+            'relatedTags' => $project->tags,
             'base'   => $this->base
         ]);
     }
@@ -75,6 +80,8 @@ class ProjectController extends Controller
             'body'      => $request->body,
             'github'    => $request->github
         ]);
+
+        self::handleTags($project, explode(',',request('tags')));
 
         return redirect()
             ->route('admin.project.index')
@@ -93,5 +100,18 @@ class ProjectController extends Controller
     {
         $project->delete();
         return response()->json(['message' => 'project deleted'],200);
+    }
+
+    private static function handleTags(Project $project, $tags)
+    {
+        $project->tags()->detach();
+        foreach($tags as $tag)
+        {
+            $tag = Tag::find($tag);
+            if($tag){
+                $tag->projects()->save($project);
+            }
+        }
+
     }
 }

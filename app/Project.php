@@ -9,4 +9,8 @@ class Project extends Model
 {
     protected $guarded = ['id'];
     use SoftDeletes;
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }

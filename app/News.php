@@ -14,4 +14,8 @@ class News extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }

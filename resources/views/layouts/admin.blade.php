@@ -12,6 +12,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
     <!-- Scripts -->
     <script src="/js/vendor.js"></script>
 

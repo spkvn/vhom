@@ -23,10 +23,49 @@
                 </textarea>
             </label>
         </div>
-        <div class="cell small-12">
+        <div class="cell small-8">
             <label for="github">Github link:
                 <input type="text" name="github" value="{{isset($record) ? $record->github : ""}}">
             </label>
         </div>
+        <div class="cell small-4">
+            <label for="tags">Tags:
+                <input type="text" name="tags" id="tags"/>
+            </label>
+        </div>
     </div>
 @endsection
+
+@push('javascript')
+<script>
+    var tags = [
+        @foreach(Vhom\Tag::all() as $tag)
+        {
+            tag : "{{$tag->name}}",
+            value : "{{$tag->id}}"
+        },
+        @endforeach
+    ];
+
+    $('#tags').selectize({
+        delimiter: ',',
+        persist: false,
+        valueField: 'value',
+        labelField: 'tag',
+        searchField: 'tag',
+        options: tags,
+        create: function(input) {
+            return {
+                tag: input,
+                value: input
+            }
+        }
+    });
+
+    @if(isset($relatedTags))
+        @foreach($relatedTags as $relatedTag)
+            $('#tags')[0].selectize.addItem({{$relatedTag->id}});
+        @endforeach
+    @endif
+</script>
+@endpush

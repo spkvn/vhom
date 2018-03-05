@@ -6,8 +6,8 @@
                 <p>{{project.subtitle}}</p>
                 <p>{{errors}}</p>
             </div>
-            <div class="cell small-12">
-                {{project.body}}
+            <div class="cell small-12" v-html="project.body">
+
             </div>
         </div>
     </div>

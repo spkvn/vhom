@@ -8472,6 +8472,7 @@ nav.nav {
   top: 0;
   bottom: 0;
   left: 0;
+  z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8571,5 +8572,24 @@ div.projects-index {
 
 div.projects-index div.project-cell {
   color: white;
+}
+
+/* Enter and leave animations can use different */
+
+/* durations and timing functions.              */
+
+.slide-fade-enter-active {
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;
+}
+
+.slide-fade-leave-active {
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  opacity: 0;
 }
 

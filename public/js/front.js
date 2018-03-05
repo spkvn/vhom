@@ -14891,6 +14891,8 @@ module.exports = Component.exports
 //
 //
 //
+//
+//
 
 /***/ }),
 /* 19 */
@@ -14918,7 +14920,19 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "content" }, [_c("router-view")], 1)
+    _c(
+      "div",
+      { staticClass: "content" },
+      [
+        _c(
+          "transition",
+          { attrs: { name: "slide-fade", mode: "out-in" } },
+          [_c("router-view")],
+          1
+        )
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -16107,9 +16121,10 @@ var render = function() {
         _c("p", [_vm._v(_vm._s(_vm.errors))])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "cell small-12" }, [
-        _vm._v("\n            " + _vm._s(_vm.project.body) + "\n        ")
-      ])
+      _c("div", {
+        staticClass: "cell small-12",
+        domProps: { innerHTML: _vm._s(_vm.project.body) }
+      })
     ])
   ])
 }

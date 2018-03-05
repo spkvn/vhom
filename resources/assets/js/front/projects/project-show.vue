@@ -5,7 +5,7 @@
                  :style="{ 'background-image' : 'url(\'http://dev.vhom.org/storage/app/' + project.background_image + '\')' }"
                 >
                 <div class="left">
-                    <strong><a>← Projects</a></strong>
+                    <strong @click="returnToProjects()"><a>← Projects</a></strong>
                 </div>
                 <div class="right">
                     <h2>{{project.title}}</h2>

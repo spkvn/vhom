@@ -16165,7 +16165,19 @@ var render = function() {
           }
         },
         [
-          _vm._m(0),
+          _c("div", { staticClass: "left" }, [
+            _c(
+              "strong",
+              {
+                on: {
+                  click: function($event) {
+                    _vm.returnToProjects()
+                  }
+                }
+              },
+              [_c("a", [_vm._v("← Projects")])]
+            )
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "right" }, [
             _c("h2", [_vm._v(_vm._s(_vm.project.title))]),
@@ -16182,19 +16194,11 @@ var render = function() {
         domProps: { innerHTML: _vm._s(_vm.project.body) }
       }),
       _vm._v(" "),
-      _vm._m(1)
+      _vm._m(0)
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "left" }, [
-      _c("strong", [_c("a", [_vm._v("← Projects")])])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

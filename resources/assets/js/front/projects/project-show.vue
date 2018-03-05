@@ -1,13 +1,29 @@
 <template>
     <div class="project-show">
         <div class="grid-x grid-padding-x">
-            <div class="cell small-12">
-                <h2>{{project.title}}</h2>
-                <p>{{project.subtitle}}</p>
-                <p>{{errors}}</p>
+            <div class="cell small-12 taller project-show-header"
+                 :style="{ 'background-image' : 'url(\'http://dev.vhom.org/storage/app/' + project.background_image + '\')' }"
+                >
+                <div class="left">
+                    <strong><a>← Projects</a></strong>
+                </div>
+                <div class="right">
+                    <h2>{{project.title}}</h2>
+                    <p>{{project.subtitle}}</p>
+                    <p>{{errors}}</p>
+                </div>
             </div>
-            <div class="cell small-12" v-html="project.body">
-
+            <div class="cell small-8 body" v-html="project.body">
+            </div>
+            <div class="cell small-4">
+                <div class="grid-y">
+                    <div class="cell small-4">
+                        Top
+                    </div>
+                    <div class="cell small-4">
+                        Bottom
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -31,6 +47,11 @@
                 .catch((response) => {
                     this.errors = response;
                 });
+        },
+        methods : {
+            returnToProjects(){
+                this.$router.push('/projects');
+            }
         }
     }
 </script>

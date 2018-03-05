@@ -5,15 +5,16 @@ div.projects-index {
   }
 }
 
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
-.slide-fade-enter-active {
-  transition: all .5s linear;
-}
-.slide-fade-leave-active {
-  transition: all .5s linear;
-}
-.slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
+div.project-show{
+  div.taller{
+    height:20vh;
+  }
+  div.project-show-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    & *{
+      color:white;
+    }
+  }
 }
